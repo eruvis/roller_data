@@ -1,0 +1,1236 @@
+var arr = <!DOCTYPE html>
+<html lang="ru">
+  <head>
+	<meta charset="utf-8">
+	<title>Архивач — Архив тредов имиджборд</title>
+	<meta name="robots" content="noindex,follow" />
+	<meta name="description" content="Архив тредов имиджборд. Сохраненные треды двача, 2ch.hk.">
+	<meta name="keywords" content="архивач, архива.ч, архив тредов, архивы 2ch.hk, копипаста, сохраненные треды двача, сохранить тред, имиджборд, archivach" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="canonical" href="http://arhivach.top/index/"/>
+	
+	<!-- Le styles -->
+	<link href="/theme/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/theme/bootstrap/css/custom.css" rel="stylesheet">
+    <link href="/theme/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/theme/bootstrap/css/select2.css" rel="stylesheet">
+	<link href="/theme/bootstrap/css/jquery.pnotify.default.css" rel="stylesheet">
+		<link rel="shortcut icon" href="/favicon.ico">
+	
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    	
+    <script src="/theme/bootstrap/js/jquery.js"></script>
+	<script src="/theme/bootstrap/js/jquery.cookie.js"></script>
+	<script src="/theme/bootstrap/js/custom.js"></script>
+	
+
+	<script>
+		var is_admin = 0;
+		var is_user = 0;		var ajax_url = 'http://arhivach.top/ajax/';
+		var theme_dir = '/theme/bootstrap';
+		var web_protocol = 'http://';
+		var active_contr = 'index';
+		var page_from=0;
+		var video_formats = ["webm","mp4"];
+
+	if(get_site_style())
+		switch_site_style(get_site_style());
+	if(get_thr_style())
+		switch_thr_style(get_thr_style());
+	
+    </script>
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-40493853-1', 'arhivach.org');
+	  ga('send', 'pageview');
+	  
+	</script>
+	
+  </head>
+
+  <body class="contr_index">
+
+    <div class="navbar navbar-fixed-top" id="mm_navbar">
+      <div class="navbar-inner" id="mm_navbar_inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" title="На главную" href="http://arhivach.top/index/">Архива.ч</a>
+          <div class="nav-collapse collapse">
+	
+			
+			<ul class="nav">
+
+<li><a title="Добавить тред" href="http://arhivach.top/add/"><i class="icon-plus"></i> Добавить</a></li>
+		<li><a title="Войти в систему" href="http://arhivach.top/auth/"><i class="icon-user"></i> Войти</a></li>
+		<li class="dropdown">
+	<a href="#" onclick="switch_nightmode(!is_nightmode()); return false;" class="dropdown-toggle"><i class="icon-adjust"></i> <b class="caret"></b></a>
+	<ul class="dropdown-menu">
+		<li><a href="#" onclick="switch_nightmode(0); return false;" id="switch_nightmode_0">Светлый стиль</a></li>
+		<li><a href="#" onclick="switch_nightmode(1); return false;" id="switch_nightmode_1">Тёмный стиль</a></li>
+		<li class="divider"></li>
+		<li class="dropdown-label">Дополнительно</li>
+		<li class="dropdown-submenu">
+			<a tabindex="-1" href="#" onclick="return false;">Стиль сайта</a>
+			<ul class="dropdown-menu">
+				<li><a href="#" onclick="switch_site_style(''); return false;" id="switch_site_style_0">Arhivach (по умолчанию)</a></li>
+				<li><a href="#" onclick="switch_site_style('darkstrap'); return false;" id="switch_site_style_darkstrap">Darkstrap (Neutron-like)</a></li>
+			</ul>
+		</li>
+		<li class="dropdown-submenu">
+			<a tabindex="-1" href="#" onclick="return false;">Стиль тредов</a>
+			<ul class="dropdown-menu">
+				<li><a href="#" onclick="switch_thr_style(''); return false;" id="switch_thr_style_0">Arhivach (по умолчанию)</a></li>
+				<li><a href="#" onclick="switch_thr_style('neutron'); return false;" id="switch_thr_style_neutron">Neutron</a></li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li class="dropdown"><a href="#" onclick="return false;" class="dropdown-toggle"><i class="icon-info-sign"></i> <b class="caret"></b></a><ul class="dropdown-menu"><li><a title="" href="http://arhivach.top/faq/"><i class="icon-question-sign"></i> FAQ</a></li><li><a title="" href="http://arhivach.top/contacts/"><i class="icon-envelope"></i> Контакты</a></li><li><a title="" href="http://arhivach.top/donate/"><i class="icon-gift"></i> Помощь сайту</a></li><li><a title="" href="http://arhivach.top/extensions/"><i class="icon-inbox"></i> Дополнения</a></li><li class="divider"></li><li><a title="" href="http://arhivach.top/thread/random/"><i class="icon-random"></i> Случайный тред</a></li><li><a title="Архивы 2ch.ru и 2-ch.ru" href="http://arhivach.top/misc/public/old/"><i class="icon-hdd"></i> Старые архивы</a></li><li class="divider"></li><li><a title="" href="http://arhivach.top/status/"><i class="icon-warning-sign"></i> Статус системы</a></li><li><a title="" href="http://arhivach.top/api/"><i class="icon-wrench"></i> API</a></li></ul></li>			</ul>
+			
+			
+<div class="navbar pull-right" style="margin-top:5px;margin-bottom:5px;">
+	<div id="search_google" class="input-append group_vthin">
+		<form action="/search/" method="POST" target="_blank" style="margin: 0 !important;">
+		<input type="text" name="q" style="width:407px; margin-left: 0px; margin-right: -5px;" id="input_search" placeholder="Поиск по сайту" />
+		<button type="submit" class="btn btn-default select2_min_h select2_btn_append_right" style=""><i class="icon-search"></i></button>
+				
+		</form>
+	</div>
+</div>
+			
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+	
+    <div class="container-fluid">
+		<!--googleoff: all--><noindex><div class="announcements"><div class="alert alert-warning robots-nocontent">Ваши <a rel="nofollow" href="/donate/">пожертвования</a> помогают поддерживать работу ресурса!</div></div></noindex><!--googleon: all-->
+        			
+						
+					
+		<div id="page_content">
+			<script>
+	page_from = 25;
+			
+	/*if(is_admin)
+	$(document).ready(function() {
+		$('div.post_thumb_noref').each(function() {
+		
+			var id = ($(this).attr('id')).split('_');
+			var thumb = $(this).attr('thumb');
+			var full = $(this).attr('full');
+			//$('#'+id)
+			$(this).html(ReferrerKiller.htmlString('<img src="' + thumb + '" onclick="parent.expand_image2(\''+id[0]+'_'+id[1]+'\',\''+full+'\',event);" />',{}));
+			//$(this).html(ReferrerKiller.htmlString('<img src="' + thumb + '" onclick="alert(parent.$(this).text());" />',{}));
+		
+			//var id = $(this).attr('id').substr(6);
+			//alert(id);
+			//$(this).html(ReferrerKiller.htmlString('<img src="' + full + '" onload="parent.expand(id,this.src,this.clientWidth,this.clientHeight);"/>',{}));
+		});
+	});*/
+</script>
+<div style="margin-bottom:15px;margin-left:15px;">
+	Сортировка:
+	<div class="btn-group" id="sort_group">
+		<a href="http://arhivach.top/index/bydate/weekly/" title="По умолчанию" class="btn btn-default btn-flat btn-small active" rel="nofollow">Дата</a>
+		<a href="http://arhivach.top/index/viewed/weekly/" title="По количеству просмотров" class="btn btn-default btn-flat btn-small" rel="nofollow">Просмотры</a>
+		<a href="http://arhivach.top/index/faved/weekly/" title="По количеству добавлений в закладки" class="btn btn-default btn-flat btn-small" rel="nofollow">Закладки</a>
+		<a href="http://arhivach.top/index/postcount/weekly/" title="По количеству постов" class="btn btn-default btn-flat btn-small" rel="nofollow">Посты</a>
+	</div>
+	за<div class="btn-group" id="filter_date_group">
+		<a href="http://arhivach.top/index/faved/daily/" title="За последние 24 часа" class="btn btn-default btn-flat btn-small" rel="nofollow">День</a>
+		<a href="http://arhivach.top/index/faved/weekly/" class="btn btn-default btn-flat btn-small" rel="nofollow">Неделю</a>
+		<a href="http://arhivach.top/index/faved/monthly/" class="btn btn-default btn-flat btn-small" rel="nofollow">Месяц</a>
+		<a href="http://arhivach.top/index/faved/alltime/" class="btn btn-default btn-flat btn-small active" rel="nofollow">Все время</a>
+		<a href="#" id="daterange" class="btn btn-default btn-flat btn-small" rel="nofollow">...</a>
+	</div>
+	
+		
+	<style>
+		#search_tag .select2-choices {
+						opacity:0.8;		}
+	</style>
+	
+	<div id="search_tag" style="/*margin-left:30px;*/ float:right; font-size:14px;" class="input-append group_vthin">
+		<input type='hidden' style="margin-left: 10px;" id="sel1" value=""  />
+			</div>
+<div style="clear:both;"></div>
+		       
+
+<script type="text/javascript">
+	// creating datepicker
+	$(document).ready(function() {
+		
+		$('#daterange').click(function(){
+			$('#daterange').unbind('click');
+			
+			$('#daterange').daterangepicker({
+												minDate: '01.12.2012',
+				maxDate: moment(),//'12.31.2020',
+				format: 'DD.MM.YYYY',
+				separator: ' - ',
+				showDropdowns: true,
+				locale: {
+					applyLabel: 'Ок',
+					cancelLabel: 'Отмена',
+					fromLabel: 'От',
+					toLabel: 'До',
+					customRangeLabel: 'Определить',
+					daysOfWeek: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт','Сб'],
+					monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+					firstDay: 1
+				}
+			},
+			function(start, end) {
+				//console.log("Callback has been called!");
+				$('#filter_date_group a.active').removeClass('active');
+				$('#daterange').addClass('active').html(start.format('D.M.YYYY') + ' - ' + end.format('D.M.YYYY'));
+				window.location.href = 'http://arhivach.top/index/faved/'+start.format('D.M.YYYY') + '-' + end.format('D.M.YYYY')+'/';
+			});
+			
+			$('#daterange').click();
+			return false;
+		});
+			
+		MultiAjaxAutoComplete('#sel1', ajax_url, {width:'300px',containerCssClass:"span7",containerCss:{'margin-left':'0px'},maximumSelectionSize:5});
+		$('#sel1').on("change", function(e) {
+			//$('html, body').animate({scrollTop:0}, 'slow');
+			window.scrollTo(0, 0);
+			
+			//page_from=25;
+			//alert(  JSON.stringify({val:$("#sel1").select2("val")})   );
+			
+			var sel1val = $("#sel1").select2("val");
+			
+			
+							
+				var url = [location.protocol, '//', location.host].join(''); //, location.pathname
+				var arrayLength = sel1val.length;
+				if(arrayLength>0) {
+					var tmp;
+					var tag_ids = [];
+					for (var i = 0; i < arrayLength; i++) {
+						tmp = sel1val[i].split(':',2);
+						tag_ids.push(tmp[0]);
+					}
+					//var param = { 'tags':tag_ids.join(',') }; $.param(param)
+					
+					document.location.href = url + '/?tags=' + tag_ids.join(','); //window.location.reload();
+				} else {
+					document.location.href = url + '/'; //window.location.reload();
+				}
+					});
+		
+		$('tr.collapsed1').hover(function(){$(this).removeClass('collapsed1');},nullfunc,750);
+		
+		
+		if(window_width>min_pc_width)
+			$('.post_image img').attr('title','Зажмите Ctrl чтобы развернуть в посте');
+	});
+</script>
+</div>
+
+<div class="thread_list">
+		<table id="thread_list_table" class="table table-condensed table-hover" style="">
+		<thead>
+		<tr>
+			<th class="span1 thread_control"></th>
+			<th class="span15 thread_desc"></th>
+			<th class="span2 thread_date"></th>
+		</tr>
+		</thead>
+		<tbody>
+						<tr id="thread_row_938401">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >7</span>
+	
+	<a href="#" id="fav938401" style="" onclick="add_fav(938401); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938401" style="display:none;" onclick="del_fav(938401); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938401_1" pib="938401_1"><a onclick="expand_image2('938401_1','/storage/a/bb/abb58edd863e2265ba54c1a7c399dcd0.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938401_1"><img alt="" src="/storage/t/abb58edd863e2265ba54c1a7c399dcd0.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938401/"><b>Поговорим о порнухе</b> &mdash; Слушай анон, дрочу на всякую жесткую извращенную порнуху. В жизни на эту ёбань я никогда бы даже не посмотрел и не стал практиковать. Это нормально или нет? Что вообще в данном случае говорят?</a>
+				</div>
+								<div class="thread_tags" id="thread_938401_tags">
+				<span><a rel="nofollow" href="/?tags=76" title="/psy/ - Психология и психиатрия" onclick="add_tag_to_filter([{id:'76',title:'/psy/ - Психология и психиатрия'}]);return false;"><span class="taglabel">/psy/ - Психология и психиатрия</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:11&#013;Посл.сообщение: сегодня 6:16">сегодня 6:16</span></td>
+			</tr>
+						<tr id="thread_row_938400">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >35</span>
+	
+	<a href="#" id="fav938400" style="" onclick="add_fav(938400); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938400" style="display:none;" onclick="del_fav(938400); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938400_1" pib="938400_1"><a onclick="expand_image2('938400_1','/storage/4/4c/44c23d89c95d618cda508ea79c53cf73.webp',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938400_1"><img alt="" src="/storage/t/44c23d89c95d618cda508ea79c53cf73.webp"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938400/"><b>Человеческие качества</b> &mdash; Всем привет. Можете пожалуйста написать, что для вас важно в человеке? С каким человеком вы будите общаться, а с каким нет? Только серьезные ответы пжлст</a>
+				</div>
+								<div class="thread_tags" id="thread_938400_tags">
+				<span><a rel="nofollow" href="/?tags=76" title="/psy/ - Психология и психиатрия" onclick="add_tag_to_filter([{id:'76',title:'/psy/ - Психология и психиатрия'}]);return false;"><span class="taglabel">/psy/ - Психология и психиатрия</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:10&#013;Посл.сообщение: вчера 21:16">вчера 21:16</span></td>
+			</tr>
+						<tr class="collapsed1" id="thread_row_938399">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >1</span>
+	
+	<a href="#" id="fav938399" style="" onclick="add_fav(938399); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938399" style="display:none;" onclick="del_fav(938399); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938399_1" pib="938399_1"><a onclick="expand_image2('938399_1','/storage/8/2f/82fdd96907c065708445432ba323356d.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938399_1"><img alt="" src="/storage/t/82fdd96907c065708445432ba323356d.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938399/"><b>Срочно ищу пикчу</b> &mdash; Из тем про школьниц. Там баба в форме выпускницы, видна вкусная попка, снято как бы сбоку - слева, и бутылка вина то ли в руках, то ли на столе. Срочно помогите найти мозгоплавительное фото!! Ещё прошу найти фотку, где 2 школьницы: одна стоит в коротком платье и видны офигенные ножки, вторая сидит за компом.</a>
+				</div>
+								<div class="thread_tags" id="thread_938399_tags">
+				<span><a rel="nofollow" href="/?tags=2705" title="/gg/ - Хорошие девушки" onclick="add_tag_to_filter([{id:'2705',title:'/gg/ - Хорошие девушки'}]);return false;"><span class="taglabel">/gg/ - Хорошие девушки</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:02&#013;Посл.сообщение: сегодня 11:02">сегодня 11:02</span></td>
+			</tr>
+						<tr id="thread_row_938398">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >116</span>
+	
+	<a href="#" id="fav938398" style="" onclick="add_fav(938398); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938398" style="display:none;" onclick="del_fav(938398); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938398_1" pib="938398_1"><a onclick="expand_image2('938398_1','/storage/f/dc/fdc96f4720744fd0b979848af2dad459.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938398_1"><img alt="" src="/storage/t/fdc96f4720744fd0b979848af2dad459.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938398/"><b>В чем профит тут жить? Зачем тут живут люди?</b> &mdash; В чем профит тут жить? Зачем тут живут люди?</a>
+				</div>
+								<div class="thread_tags" id="thread_938398_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 11:17">сегодня 11:17</span></td>
+			</tr>
+						<tr id="thread_row_938397">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >209</span>
+	
+	<a href="#" id="fav938397" style="" onclick="add_fav(938397); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938397" style="display:none;" onclick="del_fav(938397); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938397_1" pib="938397_1"><a onclick="expand_image2('938397_1','/storage/7/e5/7e5a29247a8b10b9388de8ce16ec58e7.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938397_1"><img alt="" src="/storage/t/7e5a29247a8b10b9388de8ce16ec58e7.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938397/"><b>3×3 anime bingo thread  Восхищаемся нашим утонченным вкусом Давим необразованное плебейское быдло Об</b> &mdash; 3×3 anime bingo thread  Восхищаемся нашим утонченным вкусом Давим необразованное плебейское быдло Объективно оцениваем искусство Пускаем юшки по вене  Победитель прошлого треда и объективно хорошее аниме - Детки-Таблетки. Кинокритики единогласны в своем решении.</a>
+				</div>
+								<div class="thread_tags" id="thread_938397_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 11:18">сегодня 11:18</span></td>
+			</tr>
+						<tr id="thread_row_938396">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >23</span>
+	
+	<a href="#" id="fav938396" style="" onclick="add_fav(938396); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938396" style="display:none;" onclick="del_fav(938396); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938396_1" pib="938396_1"><a onclick="expand_image2('938396_1','/storage/7/c9/7c9ccb315d43ac98c5b55030d84da090.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938396_1"><img alt="" src="/storage/t/7c9ccb315d43ac98c5b55030d84da090.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938396/"><b>ТРЕД БАЗОВЫЙ #1  Вдоволь начитавшись биопроблемных тредов я решил создать собственный тред, где опиш</b> &mdash; ТРЕД БАЗОВЫЙ #1  Вдоволь начитавшись биопроблемных тредов я решил создать собственный тред, где опишу свой путь трансформации из омегу в условную сигму.  В этом треде я буду основываться только на собственном опыте, акцентировать внимание на собственных действиях, которые помогли мне и я уверен, что помогут и вам.  Итак, с 1 по 3 курс я был зажатым омежкой, в школе меня частенько подкалывали и</a>
+				</div>
+								<div class="thread_tags" id="thread_938396_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:22&#013;Посл.сообщение: сегодня 10:41">сегодня 10:41</span></td>
+			</tr>
+						<tr id="thread_row_938395">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >187</span>
+	
+	<a href="#" id="fav938395" style="" onclick="add_fav(938395); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938395" style="display:none;" onclick="del_fav(938395); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938395_1" pib="938395_1"><a onclick="expand_image2('938395_1','/storage/a/1b/a1bb900129fdff464408ed1d7ff4085d.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938395_1"><img alt="" src="/storage/t/a1bb900129fdff464408ed1d7ff4085d.jpg"></div></a></div><div class="post_image_block" id="pib_938395_2" pib="938395_2"><a onclick="expand_image2('938395_2','/storage/d/c9/dc9f53da7f9e03c181df057eb137f7d8.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938395_2"><img alt="" src="/storage/t/dc9f53da7f9e03c181df057eb137f7d8.jpg"></div></a></div><div class="post_image_block" id="pib_938395_3" pib="938395_3"><a onclick="expand_image2('938395_3','/storage/b/d5/bd5fe0459e366b4e276aa6f0a2920382.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938395_3"><img alt="" src="/storage/t/bd5fe0459e366b4e276aa6f0a2920382.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938395/"><b>ИНЦЕЛ НАЙДЕН И ЗАХВАЧЕН — НОРМИСЫ МОГУТ СПАТЬ СПОКОЙНО   &quot;Директриса сдохнет мучительной смертью, я </b> &mdash; ИНЦЕЛ НАЙДЕН И ЗАХВАЧЕН — НОРМИСЫ МОГУТ СПАТЬ СПОКОЙНО   &quot;Директриса сдохнет мучительной смертью, я отдельно залил жгучий яд в пулю и выстрелю ей в жирный живот&quot;  Школьник из Березников Пермского края хотел особо жестоко расстрелять отчима, одноклассников и учителей. Свои задумки 16-летний юноша транслировал в телеграм-канал, а потому задержать потенциального колумбайнера не сос</a>
+				</div>
+								<div class="thread_tags" id="thread_938395_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 11:14">сегодня 11:14</span></td>
+			</tr>
+						<tr id="thread_row_938394">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >161</span>
+	
+	<a href="#" id="fav938394" style="" onclick="add_fav(938394); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938394" style="display:none;" onclick="del_fav(938394); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938394_1" pib="938394_1"><a onclick="expand_image2('938394_1','/storage/5/c5/5c5e182c35ea2f04041254566bd699d4.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938394_1"><img alt="" src="/storage/t/5c5e182c35ea2f04041254566bd699d4.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938394/"><b>Страх становится все сильнее блять, я уже реально не могу жить один какие есть способы вот прям щас </b> &mdash; Страх становится все сильнее блять, я уже реально не могу жить один какие есть способы вот прям щас себя успокоить? про врачей алкоголь и таблетки можете не говорить, чтобы это получить надо выйти на улицу и с кем то общаться, доставки и онлайн консультации тоже не для меня,я вообще пижьец боюсь всего</a>
+				</div>
+								<div class="thread_tags" id="thread_938394_tags">
+				<span><a rel="nofollow" href="/?tags=13789" title="лестница" onclick="add_tag_to_filter([{id:'13789',title:'лестница'}]);return false;"><span class="taglabel">лестница</span></a> <a rel="nofollow" href="/?tags=3762" title="социофобия" onclick="add_tag_to_filter([{id:'3762',title:'социофобия'}]);return false;"><span class="taglabel">социофобия</span></a> <a rel="nofollow" href="/?tags=1797" title="страх" onclick="add_tag_to_filter([{id:'1797',title:'страх'}]);return false;"><span class="taglabel">страх</span></a> <a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:22&#013;Посл.сообщение: сегодня 11:22">сегодня 11:22</span></td>
+			</tr>
+						<tr id="thread_row_938393">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-success label-thread-saved">Сохранен</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >0</span>
+	
+	<a href="#" id="fav938393" style="" onclick="add_fav(938393); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938393" style="display:none;" onclick="del_fav(938393); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938393/">[https://2ch.hk/b/res/294071598.html] Ожидание обновления</a>
+				</div>
+								<div class="thread_tags" id="thread_938393_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:16&#013;Посл.сообщение: 1 января 1970">сегодня 10:52</span></td>
+			</tr>
+						<tr id="thread_row_938392">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >68</span>
+	
+	<a href="#" id="fav938392" style="" onclick="add_fav(938392); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938392" style="display:none;" onclick="del_fav(938392); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938392_1" pib="938392_1"><a onclick="expand_image2('938392_1','/storage/0/23/0234a35e89e1717f5230f8c1b63406ee.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938392_1"><img alt="" src="/storage/t/0234a35e89e1717f5230f8c1b63406ee.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938392/"><b>Сап, оранжевый. Я социофобный хиккан-омежка с манямирком, сегодня впервые иду самостоятельно заказыв</b> &mdash; Сап, оранжевый. Я социофобный хиккан-омежка с манямирком, сегодня впервые иду самостоятельно заказывать хрючево в вкус очка. Боюсь что не осилю войти в заведение, помещение полностью пустое 100% будет, ведь сколько раз мимо не прохожу, ни единого жрущего ноунейма не вижу, значит, внимание будет приковано ко мне, и я с сжатием очка рискую впасть в ступор либо вести себя схоже дауном. Поддержи м</a>
+				</div>
+								<div class="thread_tags" id="thread_938392_tags">
+				<span><a rel="nofollow" href="/?tags=3762" title="социофобия" onclick="add_tag_to_filter([{id:'3762',title:'социофобия'}]);return false;"><span class="taglabel">социофобия</span></a> <a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:22&#013;Посл.сообщение: сегодня 11:03">сегодня 11:03</span></td>
+			</tr>
+						<tr id="thread_row_938391">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >242</span>
+	
+	<a href="#" id="fav938391" style="" onclick="add_fav(938391); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938391" style="display:none;" onclick="del_fav(938391); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938391_1" pib="938391_1"><a onclick="expand_image2('938391_1','/storage/1/ac/1acfe6dc419175bc79c519f68009a213.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938391_1"><img alt="" src="/storage/t/1acfe6dc419175bc79c519f68009a213.jpg"></div></a></div><div class="post_image_block" id="pib_938391_2" pib="938391_2"><a onclick="expand_image2('938391_2','/storage/8/ee/8ee425101673ee0b8bc130d8f2763b6f.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938391_2"><img alt="" src="/storage/t/8ee425101673ee0b8bc130d8f2763b6f.jpg"></div></a></div><div class="post_image_block" id="pib_938391_3" pib="938391_3"><a onclick="expand_image2('938391_3','/storage/b/a8/ba88f713528a9539f4c783212fa1f995.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938391_3"><img alt="" src="/storage/t/ba88f713528a9539f4c783212fa1f995.jpg"></div></a></div><div class="post_image_block" id="pib_938391_4" pib="938391_4"><a onclick="expand_image2('938391_4','/storage/0/d8/0d8fa2180973e97164e266567e6d063f.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938391_4"><img alt="" src="/storage/t/0d8fa2180973e97164e266567e6d063f.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938391/"><b>Все еще магических вайфу wifi wi-fi вацфу тред для ведьмочек</b> &mdash; Все еще магических вайфу wifi wi-fi вацфу тред для ведьмочек</a>
+				</div>
+								<div class="thread_tags" id="thread_938391_tags">
+				<span><a rel="nofollow" href="/?tags=1603" title="вайфу" onclick="add_tag_to_filter([{id:'1603',title:'вайфу'}]);return false;"><span class="taglabel">вайфу</span></a> <a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:22&#013;Посл.сообщение: сегодня 11:15">сегодня 11:15</span></td>
+			</tr>
+						<tr id="thread_row_938390">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >767</span>
+	
+	<a href="#" id="fav938390" style="" onclick="add_fav(938390); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938390" style="display:none;" onclick="del_fav(938390); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938390_1" pib="938390_1"><a class="expand_image" onclick="expand_image2('938390_1','http://i.arhivach.xyz/storage/2/a2/2a29fc25afcd651ff3852006a822bed6.webm',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938390_1"><img alt="" src="/storage/t/2a29fc25afcd651ff3852006a822bed6.thumb" loading="lazy"></div></a></div><div class="post_image_block" id="pib_938390_2" pib="938390_2"><a class="expand_image" onclick="expand_image2('938390_2','http://i.arhivach.xyz/storage/4/bf/4bf36f2dbbb66fd7d478b7f99dd4e9cb.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938390_2"><img alt="" src="/storage/t/4bf36f2dbbb66fd7d478b7f99dd4e9cb.thumb" loading="lazy"></div></a></div><div class="post_image_block" id="pib_938390_3" pib="938390_3"><a class="expand_image" onclick="expand_image2('938390_3','http://i.arhivach.xyz/storage/7/b2/7b2ab472999c2924292e11086c1f20fc.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938390_3"><img alt="" src="/storage/t/7b2ab472999c2924292e11086c1f20fc.thumb" loading="lazy"></div></a></div><div class="post_image_block" id="pib_938390_4" pib="938390_4"><a class="expand_image" onclick="expand_image2('938390_4','http://i.arhivach.xyz/storage/b/7f/b7ff526518cb43247629c8c4645f50ee.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938390_4"><img alt="" src="/storage/t/b7ff526518cb43247629c8c4645f50ee.thumb" loading="lazy"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938390/"><b>Шлюхотред душевный /love/</b> &mdash; Я открою вам секрет... Это мой любимый тред! Тут алисоньки сидят, Коки рыцарям доят!!!  Форумы и Сайты: https://f95zone.to https://lewdzone.com/ https://otomi-games.com/ https://lewdninja.com/ https://www.dlsite.com https://tfgames.site/ https://vndb.org/ https://itch.io/games/tag-adult  Трекеры: http://pornolab.net https://porno-island.site/ http://www.anime-sharing.com/forum/ https://albedo.pw/index.php http://www.loverslab.com/ http://sukebei.nyaa.se  Прошлый тред</a>
+				</div>
+								<div class="thread_tags" id="thread_938390_tags">
+				<span><a rel="nofollow" href="/?tags=7104" title="Порноигры" onclick="add_tag_to_filter([{id:'7104',title:'Порноигры'}]);return false;"><span class="taglabel">Порноигры</span></a> <a rel="nofollow" href="/?tags=27" title="/vg/ - Видеоигры" onclick="add_tag_to_filter([{id:'27',title:'/vg/ - Видеоигры'}]);return false;"><span class="taglabel">/vg/ - Видеоигры</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:18&#013;Посл.сообщение: сегодня 11:12">сегодня 11:12</span></td>
+			</tr>
+						<tr id="thread_row_938389">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >195</span>
+	
+	<a href="#" id="fav938389" style="" onclick="add_fav(938389); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938389" style="display:none;" onclick="del_fav(938389); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938389_1" pib="938389_1"><a onclick="expand_image2('938389_1','/storage/0/ef/0ef25a9283ef1219ffec76adfa1449cb.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_1"><img alt="" src="/storage/t/0ef25a9283ef1219ffec76adfa1449cb.jpg"></div></a></div><div class="post_image_block" id="pib_938389_2" pib="938389_2"><a onclick="expand_image2('938389_2','/storage/8/04/8046094360ffe8a2d9dfc7f7aad633e3.webp',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_2"><img alt="" src="/storage/t/8046094360ffe8a2d9dfc7f7aad633e3.webp"></div></a></div><div class="post_image_block" id="pib_938389_3" pib="938389_3"><a onclick="expand_image2('938389_3','/storage/8/35/835bdeddd36b0aafed3f282b33fe449f.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_3"><img alt="" src="/storage/t/835bdeddd36b0aafed3f282b33fe449f.jpg"></div></a></div><div class="post_image_block" id="pib_938389_4" pib="938389_4"><a onclick="expand_image2('938389_4','/storage/a/d3/ad32814286b552852ba5c4aca79f04b7.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_4"><img alt="" src="/storage/t/ad32814286b552852ba5c4aca79f04b7.jpg"></div></a></div><div class="post_image_block" id="pib_938389_5" pib="938389_5"><a onclick="expand_image2('938389_5','/storage/c/02/c026be4775c5db33802fa488994aed58.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_5"><img alt="" src="/storage/t/c026be4775c5db33802fa488994aed58.jpg"></div></a></div><div class="post_image_block" id="pib_938389_6" pib="938389_6"><a onclick="expand_image2('938389_6','/storage/7/01/70183a0c635d1b945bf1ff7e9a285b37.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_6"><img alt="" src="/storage/t/70183a0c635d1b945bf1ff7e9a285b37.png"></div></a></div><div class="post_image_block" id="pib_938389_7" pib="938389_7"><a onclick="expand_image2('938389_7','/storage/3/aa/3aa3282129fa3af89083f14ed5dd1ce8.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_7"><img alt="" src="/storage/t/3aa3282129fa3af89083f14ed5dd1ce8.jpg"></div></a></div><div class="post_image_block" id="pib_938389_8" pib="938389_8"><a onclick="expand_image2('938389_8','/storage/c/5d/c5dddf032c318aa7fe27c549607b8f55.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938389_8"><img alt="" src="/storage/t/c5dddf032c318aa7fe27c549607b8f55.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938389/"><b>DALL-E тред #2 /dalle/</b> &mdash; Генерируем бесплатно через Bing https://www.bing.com/images/create При регистрации даётся 25 бесплатных кредитов. Для использования необходимо подключить VPN с не-российским IP и залогиниться на https://www.bing.com/images/create используя свою учётку майкрософа. При исчерпании кредитов регаем новый аккаунт.  Генерация за бабосы через OpenAI https://labs.openai.com Оплата картой, жители этой страны без зарубежной карты в пролёте.  OpenAI выпустили DALL-E 3, новую версию</a>
+				</div>
+								<div class="thread_tags" id="thread_938389_tags">
+				<span><a rel="nofollow" href="/?tags=14319" title="DALL-E" onclick="add_tag_to_filter([{id:'14319',title:'DALL-E'}]);return false;"><span class="taglabel">DALL-E</span></a> <a rel="nofollow" href="/?tags=14780" title="/ai/ - Искусственный интеллект (artificial intelligence)" onclick="add_tag_to_filter([{id:'14780',title:'/ai/ - Искусственный интеллект'}]);return false;"><span class="taglabel">/ai/ - Искусственный интеллект</span></a> <a rel="nofollow" href="/?tags=13695" title="Арт-Нейросеть" onclick="add_tag_to_filter([{id:'13695',title:'Арт-Нейросеть'}]);return false;"><span class="taglabel">Арт-Нейросеть</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 10:42&#013;Посл.сообщение: сегодня 9:47">сегодня 9:47</span></td>
+			</tr>
+						<tr id="thread_row_938388">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >1726</span>
+	
+	<a href="#" id="fav938388" style="" onclick="add_fav(938388); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938388" style="display:none;" onclick="del_fav(938388); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938388_1" pib="938388_1"><a onclick="expand_image2('938388_1','/storage/6/0f/60fc5c756cea1932d6624019a7149104.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938388_1"><img alt="" src="/storage/t/60fc5c756cea1932d6624019a7149104.png"></div></a></div><div class="post_image_block" id="pib_938388_2" pib="938388_2"><a class="expand_image" onclick="expand_image2('938388_2','http://i.arhivach.xyz/storage/9/c9/9c9c71e47e7fae321ef6f5b929e86494.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938388_2"><img alt="" src="/storage/t/9c9c71e47e7fae321ef6f5b929e86494.thumb" loading="lazy"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938388/"><b>AI Chatbot General № 400 /aicg/</b> &mdash; AI Chatbot General № 400  Общий вопросов по чат-ботам и прочего тред.  Поздравляю всех с юбилейным четырехсотым тредом. Аноны уже хорошо освоили локальный деплой приложений на python и nodejs, но теперь нужно учиться работе с облаком AWS. Пожелаем им удачи.  - Фронтэнды - Agnai, SillyTavern, RisuAI Гайды: https://rentry.co/ultimatespoonfeed | https://rentry.co/ClaudForAgnai | https://rentry.co/Aicg4Retards (Гайд на английском) https://github.com/SillyLossy/Tave</a>
+				</div>
+								<div class="thread_tags" id="thread_938388_tags">
+				<span><a rel="nofollow" href="/?tags=14792" title="AI Chatbot" onclick="add_tag_to_filter([{id:'14792',title:'AI Chatbot'}]);return false;"><span class="taglabel">AI Chatbot</span></a> <a rel="nofollow" href="/?tags=14780" title="/ai/ - Искусственный интеллект (artificial intelligence)" onclick="add_tag_to_filter([{id:'14780',title:'/ai/ - Искусственный интеллект'}]);return false;"><span class="taglabel">/ai/ - Искусственный интеллект</span></a> <a rel="nofollow" href="/?tags=14311" title="CharacterAI" onclick="add_tag_to_filter([{id:'14311',title:'CharacterAI'}]);return false;"><span class="taglabel">CharacterAI</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 10:35&#013;Посл.сообщение: вчера 14:28">вчера 14:28</span></td>
+			</tr>
+						<tr id="thread_row_938387">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >1521</span>
+	
+	<a href="#" id="fav938387" style="" onclick="add_fav(938387); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938387" style="display:none;" onclick="del_fav(938387); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938387_1" pib="938387_1"><a onclick="expand_image2('938387_1','/storage/6/0f/60fc5c756cea1932d6624019a7149104.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938387_1"><img alt="" src="/storage/t/60fc5c756cea1932d6624019a7149104.png"></div></a></div><div class="post_image_block" id="pib_938387_2" pib="938387_2"><a class="expand_image" onclick="expand_image2('938387_2','http://i.arhivach.xyz/storage/9/c9/9c9c71e47e7fae321ef6f5b929e86494.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938387_2"><img alt="" src="/storage/t/9c9c71e47e7fae321ef6f5b929e86494.thumb" loading="lazy"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938387/"><b>AI Chatbot General № 399 /aicg/</b> &mdash; AI Chatbot General № 399  Общий вопросов по чат-ботам и прочего тред.  - Фронтэнды - Agnai, SillyTavern, RisuAI Гайды: https://rentry.co/ultimatespoonfeed | https://rentry.co/ClaudForAgnai | https://rentry.co/Aicg4Retards (Гайд на английском) https://github.com/SillyLossy/TavernAI | https://github.com/ntvm/SillyTavern (Форк нв-куна) https://agnai.chat/ https://risuai.xyz/  - GPT - Джейлы на 4: https://rentry.co/fa5fv | https://dumb.one/gpt/prompts-scraped/ | ht</a>
+				</div>
+								<div class="thread_tags" id="thread_938387_tags">
+				<span><a rel="nofollow" href="/?tags=14792" title="AI Chatbot" onclick="add_tag_to_filter([{id:'14792',title:'AI Chatbot'}]);return false;"><span class="taglabel">AI Chatbot</span></a> <a rel="nofollow" href="/?tags=14780" title="/ai/ - Искусственный интеллект (artificial intelligence)" onclick="add_tag_to_filter([{id:'14780',title:'/ai/ - Искусственный интеллект'}]);return false;"><span class="taglabel">/ai/ - Искусственный интеллект</span></a> <a rel="nofollow" href="/?tags=14311" title="CharacterAI" onclick="add_tag_to_filter([{id:'14311',title:'CharacterAI'}]);return false;"><span class="taglabel">CharacterAI</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 10:32&#013;Посл.сообщение: вчера 14:28">вчера 14:28</span></td>
+			</tr>
+						<tr id="thread_row_938386">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >107</span>
+	
+	<a href="#" id="fav938386" style="" onclick="add_fav(938386); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938386" style="display:none;" onclick="del_fav(938386); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938386_1" pib="938386_1"><a onclick="expand_image2('938386_1','/storage/7/95/795e1b5a3d6c2acee2915deffd493436.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938386_1"><img alt="" src="/storage/t/795e1b5a3d6c2acee2915deffd493436.jpg"></div></a></div><div class="post_image_block" id="pib_938386_2" pib="938386_2"><a onclick="expand_image2('938386_2','/storage/a/f0/af0d4290b99ef1872092c8634674025c.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938386_2"><img alt="" src="/storage/t/af0d4290b99ef1872092c8634674025c.png"></div></a></div><div class="post_image_block" id="pib_938386_3" pib="938386_3"><a onclick="expand_image2('938386_3','/storage/e/20/e20c79cce3d57d8ff6c19b36e0861347.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938386_3"><img alt="" src="/storage/t/e20c79cce3d57d8ff6c19b36e0861347.jpg"></div></a></div><div class="post_image_block" id="pib_938386_4" pib="938386_4"><a onclick="expand_image2('938386_4','/storage/4/1a/41a50ec63b986ab8435c3fde14483f10.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938386_4"><img alt="" src="/storage/t/41a50ec63b986ab8435c3fde14483f10.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938386/"><b>Любви и обожания Wednesday тред #66</b> &mdash; Wednesday (Уэнсдэй) — сериал от Netflix, вышедший в 2022 году и покоривший сердца миллионов людей.  Обсуждаем горячо любимых персонажей, потираем ладошки в ожидании пришествия второго сезона и превозмогаем в надежде заполучить свою лучшую девочку.  Первое правило уэнсдэй-треда — все девочки равны. Второе правило уэнсдэй-треда — нельзя оскорблять девочек Третье правило уэнсдэй-треда — не корми троллей!  Кинопоиск: https://www.kinopoisk.ru/series/4365427/  Ар</a>
+				</div>
+								<div class="thread_tags" id="thread_938386_tags">
+				<span><a rel="nofollow" href="/?tags=14304" title="Wednesday" onclick="add_tag_to_filter([{id:'14304',title:'Wednesday'}]);return false;"><span class="taglabel">Wednesday</span></a> <a rel="nofollow" href="/?tags=92" title="/fag/ - Фагготрия" onclick="add_tag_to_filter([{id:'92',title:'/fag/ - Фагготрия'}]);return false;"><span class="taglabel">/fag/ - Фагготрия</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 10:25&#013;Посл.сообщение: сегодня 10:23">сегодня 10:23</span></td>
+			</tr>
+						<tr id="thread_row_938385">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >259</span>
+	
+	<a href="#" id="fav938385" style="" onclick="add_fav(938385); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938385" style="display:none;" onclick="del_fav(938385); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938385_1" pib="938385_1"><a onclick="expand_image2('938385_1','/storage/a/3c/a3ca33e4a30d09322a02380a5958f971.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938385_1"><img alt="" src="/storage/t/a3ca33e4a30d09322a02380a5958f971.png"></div></a></div><div class="post_image_block" id="pib_938385_2" pib="938385_2"><a onclick="expand_image2('938385_2','/storage/2/2b/22b24ceba085b05678a8d25351aca1b1.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938385_2"><img alt="" src="/storage/t/22b24ceba085b05678a8d25351aca1b1.png"></div></a></div><div class="post_image_block" id="pib_938385_3" pib="938385_3"><a onclick="expand_image2('938385_3','/storage/1/0e/10e303e503f45b28c57d9d19467322d3.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938385_3"><img alt="" src="/storage/t/10e303e503f45b28c57d9d19467322d3.png"></div></a></div><div class="post_image_block" id="pib_938385_4" pib="938385_4"><a onclick="expand_image2('938385_4','/storage/4/0d/40d4b6eab7c95c8b70c26d96bbb315e5.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938385_4"><img alt="" src="/storage/t/40d4b6eab7c95c8b70c26d96bbb315e5.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938385/"><b>Hunter x Hunter</b> &mdash; Предыдущий &gt;&gt;2107452 (OP)</a>
+				</div>
+								<div class="thread_tags" id="thread_938385_tags">
+				<span><a rel="nofollow" href="/?tags=4202" title="Hunter x Hunter" onclick="add_tag_to_filter([{id:'4202',title:'Hunter x Hunter'}]);return false;"><span class="taglabel">Hunter x Hunter</span></a> <a rel="nofollow" href="/?tags=87" title="/ma/ - Манга" onclick="add_tag_to_filter([{id:'87',title:'/ma/ - Манга'}]);return false;"><span class="taglabel">/ma/ - Манга</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 10:14&#013;Посл.сообщение: 5 октября  14:59">5 октября  14:59</span></td>
+			</tr>
+						<tr id="thread_row_938384">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >24</span>
+	
+	<a href="#" id="fav938384" style="" onclick="add_fav(938384); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938384" style="display:none;" onclick="del_fav(938384); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938384_1" pib="938384_1"><a onclick="expand_image2('938384_1','/storage/b/13/b13def6aab7c06fa2e943bcaca97ae66.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938384_1"><img alt="" src="/storage/t/b13def6aab7c06fa2e943bcaca97ae66.jpg"></div></a></div><div class="post_image_block" id="pib_938384_2" pib="938384_2"><a onclick="expand_image2('938384_2','/storage/d/9b/d9b047d893595586058d8366162eea29.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938384_2"><img alt="" src="/storage/t/d9b047d893595586058d8366162eea29.jpg"></div></a></div><div class="post_image_block" id="pib_938384_3" pib="938384_3"><a onclick="expand_image2('938384_3','/storage/f/e6/fe64940d38c0e864cbe09503f5b2af5f.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938384_3"><img alt="" src="/storage/t/fe64940d38c0e864cbe09503f5b2af5f.jpg"></div></a></div><div class="post_image_block" id="pib_938384_4" pib="938384_4"><a onclick="expand_image2('938384_4','/storage/8/39/8398a928b2f140c795bc5cfa0cc43704.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938384_4"><img alt="" src="/storage/t/8398a928b2f140c795bc5cfa0cc43704.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938384/"><b>Дежурное напоминание о том, что из себя представляют двачеры. Если Абу или его моча удалят этот тред</b> &mdash; Дежурное напоминание о том, что из себя представляют двачеры. Если Абу или его моча удалят этот тред - значит твердо и четко не нацисты. </a>
+				</div>
+								<div class="thread_tags" id="thread_938384_tags">
+				<span><a rel="nofollow" href="/?tags=88" title="/po/ - Политика и новости" onclick="add_tag_to_filter([{id:'88',title:'/po/ - Политика и новости'}]);return false;"><span class="taglabel">/po/ - Политика и новости</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 10:46">сегодня 10:46</span></td>
+			</tr>
+						<tr id="thread_row_938383">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >98</span>
+	
+	<a href="#" id="fav938383" style="" onclick="add_fav(938383); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938383" style="display:none;" onclick="del_fav(938383); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938383_1" pib="938383_1"><a class="expand_image" onclick="expand_image2('938383_1','http://i.arhivach.xyz/storage/8/72/872b490c690401bcd704451826e9150a.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938383_1"><img alt="" src="/storage/t/872b490c690401bcd704451826e9150a.thumb" loading="lazy"></div></a></div><div class="post_image_block" id="pib_938383_2" pib="938383_2"><a class="expand_image" onclick="expand_image2('938383_2','http://i.arhivach.xyz/storage/4/a7/4a77741853dc711579b78fcdd9a22c38.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938383_2"><img alt="" src="/storage/t/4a77741853dc711579b78fcdd9a22c38.thumb" loading="lazy"></div></a></div><div class="post_image_block" id="pib_938383_3" pib="938383_3"><a class="expand_image" onclick="expand_image2('938383_3','http://i.arhivach.xyz/storage/6/80/6801978ea7aaa8cb69baaf2ae3858efb.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938383_3"><img alt="" src="/storage/t/6801978ea7aaa8cb69baaf2ae3858efb.thumb" loading="lazy"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938383/"><b>Палестино-Изралиская  №2</b> &mdash; https://2ch.hk/wm/res/7848037.html#7848037  2023.10.07 ХАМАС начала военную операцию против Израиля. </a>
+				</div>
+								<div class="thread_tags" id="thread_938383_tags">
+				<span><a rel="nofollow" href="/?tags=6552" title="Палестина" onclick="add_tag_to_filter([{id:'6552',title:'Палестина'}]);return false;"><span class="taglabel">Палестина</span></a> <a rel="nofollow" href="/?tags=1778" title="Израиль" onclick="add_tag_to_filter([{id:'1778',title:'Израиль'}]);return false;"><span class="taglabel">Израиль</span></a> <a rel="nofollow" href="/?tags=1731" title="война" onclick="add_tag_to_filter([{id:'1731',title:'война'}]);return false;"><span class="taglabel">война</span></a> <a rel="nofollow" href="/?tags=118" title="/wm/ - Военная техника" onclick="add_tag_to_filter([{id:'118',title:'/wm/ - Военная техника'}]);return false;"><span class="taglabel">/wm/ - Военная техника</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:02&#013;Посл.сообщение: сегодня 10:23">сегодня 10:23</span></td>
+			</tr>
+						<tr id="thread_row_938382">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >1106</span>
+	
+	<a href="#" id="fav938382" style="" onclick="add_fav(938382); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938382" style="display:none;" onclick="del_fav(938382); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938382_1" pib="938382_1"><a class="expand_image" onclick="expand_image2('938382_1','http://i.arhivach.xyz/storage/0/0d/00dfcb8f7b871a4f5c3cc826acf1335d.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938382_1"><img alt="" src="/storage/t/00dfcb8f7b871a4f5c3cc826acf1335d.thumb" loading="lazy"></div></a></div><div class="post_image_block" id="pib_938382_2" pib="938382_2"><a onclick="expand_image2('938382_2','/storage/2/44/24420f1de7283275320d75a4c1cf810a.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938382_2"><img alt="" src="/storage/t/24420f1de7283275320d75a4c1cf810a.jpg"></div></a></div><div class="post_image_block" id="pib_938382_3" pib="938382_3"><a onclick="expand_image2('938382_3','/storage/e/66/e66f2130428ee8178210eac32cf96141.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938382_3"><img alt="" src="/storage/t/e66f2130428ee8178210eac32cf96141.jpg"></div></a></div><div class="post_image_block" id="pib_938382_4" pib="938382_4"><a class="expand_image" onclick="expand_image2('938382_4','http://i.arhivach.xyz/storage/0/7c/07c4081913ef8de817789b1922e30ab2.mp4',event); return false;" href="#"><div class="post_image post_image_small" id="thumb_938382_4"><img alt="" src="/storage/t/07c4081913ef8de817789b1922e30ab2.thumb" loading="lazy"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938382/"><b>Ликвидация Израильской государственности</b> &mdash; </a>
+				</div>
+								<div class="thread_tags" id="thread_938382_tags">
+				<span><a rel="nofollow" href="/?tags=6552" title="Палестина" onclick="add_tag_to_filter([{id:'6552',title:'Палестина'}]);return false;"><span class="taglabel">Палестина</span></a> <a rel="nofollow" href="/?tags=1778" title="Израиль" onclick="add_tag_to_filter([{id:'1778',title:'Израиль'}]);return false;"><span class="taglabel">Израиль</span></a> <a rel="nofollow" href="/?tags=1731" title="война" onclick="add_tag_to_filter([{id:'1731',title:'война'}]);return false;"><span class="taglabel">война</span></a> <a rel="nofollow" href="/?tags=118" title="/wm/ - Военная техника" onclick="add_tag_to_filter([{id:'118',title:'/wm/ - Военная техника'}]);return false;"><span class="taglabel">/wm/ - Военная техника</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:00&#013;Посл.сообщение: сегодня 10:21">сегодня 10:21</span></td>
+			</tr>
+						<tr id="thread_row_938381">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >7</span>
+	
+	<a href="#" id="fav938381" style="" onclick="add_fav(938381); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938381" style="display:none;" onclick="del_fav(938381); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938381_1" pib="938381_1"><a onclick="expand_image2('938381_1','/storage/1/e9/1e91971e9b22d503751b87e0c1f4985a.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938381_1"><img alt="" src="/storage/t/1e91971e9b22d503751b87e0c1f4985a.jpg"></div></a></div><div class="post_image_block" id="pib_938381_2" pib="938381_2"><a onclick="expand_image2('938381_2','/storage/b/f9/bf96a501cf8f92b03750ae96fe87d968.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938381_2"><img alt="" src="/storage/t/bf96a501cf8f92b03750ae96fe87d968.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938381/"><b>Как ебать ее?</b> &mdash; Как ебать ее?</a>
+				</div>
+								<div class="thread_tags" id="thread_938381_tags">
+				<span><a rel="nofollow" href="/?tags=14599" title="как ебать" onclick="add_tag_to_filter([{id:'14599',title:'как ебать'}]);return false;"><span class="taglabel">как ебать</span></a> <a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 11:17">сегодня 11:17</span></td>
+			</tr>
+						<tr id="thread_row_938380">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >32</span>
+	
+	<a href="#" id="fav938380" style="" onclick="add_fav(938380); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938380" style="display:none;" onclick="del_fav(938380); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938380_1" pib="938380_1"><a onclick="expand_image2('938380_1','/storage/1/bc/1bcd26d551f5cd34560c20ed611a2a11.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938380_1"><img alt="" src="/storage/t/1bcd26d551f5cd34560c20ed611a2a11.png"></div></a></div><div class="post_image_block" id="pib_938380_2" pib="938380_2"><a onclick="expand_image2('938380_2','/storage/d/81/d817edb21ea8987fe40e349ca0d2f59f.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938380_2"><img alt="" src="/storage/t/d817edb21ea8987fe40e349ca0d2f59f.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938380/"><b>Реально ли поступить в MIT</b> &mdash; Реально ли поступить в MIT</a>
+				</div>
+								<div class="thread_tags" id="thread_938380_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 10:50">сегодня 10:50</span></td>
+			</tr>
+						<tr id="thread_row_938379">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >119</span>
+	
+	<a href="#" id="fav938379" style="" onclick="add_fav(938379); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938379" style="display:none;" onclick="del_fav(938379); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938379_1" pib="938379_1"><a onclick="expand_image2('938379_1','/storage/8/98/898a1edb8f350aacf8b0181fe0d6dc31.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938379_1"><img alt="" src="/storage/t/898a1edb8f350aacf8b0181fe0d6dc31.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938379/"><b>Решил хочу взять  айфон жо 50к новый недорогой Попробуйте разубедить мимо андроид юзер 20 лет стажа</b> &mdash; Решил хочу взять  айфон жо 50к новый недорогой Попробуйте разубедить мимо андроид юзер 20 лет стажа</a>
+				</div>
+								<div class="thread_tags" id="thread_938379_tags">
+				<span><a rel="nofollow" href="/?tags=2" title="/b/ - Бред" onclick="add_tag_to_filter([{id:'2',title:'/b/ - Бред'}]);return false;"><span class="taglabel">/b/ - Бред</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 11:17">сегодня 11:17</span></td>
+			</tr>
+						<tr id="thread_row_938378">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >1</span>
+	
+	<a href="#" id="fav938378" style="" onclick="add_fav(938378); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938378" style="display:none;" onclick="del_fav(938378); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938378_1" pib="938378_1"><a onclick="expand_image2('938378_1','/storage/c/cb/ccb51730cd4d14d04a057d55978119b3.jpg',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938378_1"><img alt="" src="/storage/t/ccb51730cd4d14d04a057d55978119b3.jpg"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938378/"><b>Apple закрыла российскую версию официального сайта</b> &mdash; Apple изъяла из общего доступа российский раздел своего сайта — теперь там работает перенаправление в справочный центр. Едва ли это оказалось потерей для отечественных потребителей: русскоязычный и белорусский разделы сайта не обновлялись с марта 2022 года.  С началом украинских событий Apple перестала размещать информацию о новых продуктах в разделах сайта для жителей России и Беларуси — всё это время там оставались актуальные на тот момент </a>
+				</div>
+								<div class="thread_tags" id="thread_938378_tags">
+				<span><a rel="nofollow" href="/?tags=3076" title="/news/ - Новости" onclick="add_tag_to_filter([{id:'3076',title:'/news/ - Новости'}]);return false;"><span class="taglabel">/news/ - Новости</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 9:23&#013;Посл.сообщение: сегодня 9:22">сегодня 9:22</span></td>
+			</tr>
+						<tr id="thread_row_938377">
+				<td class="thread_control">
+					<nobr>
+	<span class="label label-warning">Активный</span>	
+	<br>	
+	
+	
+	
+	
+		
+	<span class="thread_posts_count" >23</span>
+	
+	<a href="#" id="fav938377" style="" onclick="add_fav(938377); return false;" title="Добавить в закладки"><i class="icon-star-empty"></i></a>
+	<a href="#" id="infav938377" style="display:none;" onclick="del_fav(938377); return false;" title="Удалить из закладок"><i class="icon-star"></i></a>
+	
+		
+		
+	
+							
+		
+	
+		
+		
+	
+	
+		
+	</nobr>				</td>
+				<td class="thread_desc">
+				<div class="thread_images" style="max-width:70%"><div class="post_image_block" id="pib_938377_1" pib="938377_1"><a onclick="expand_image2('938377_1','/storage/7/32/732dd4a19f82bf0f848ee7968506c0a5.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938377_1"><img alt="" src="/storage/t/732dd4a19f82bf0f848ee7968506c0a5.png"></div></a></div><div class="post_image_block" id="pib_938377_2" pib="938377_2"><a onclick="expand_image2('938377_2','/storage/7/f6/7f64959a0bbd878f2d8def88ee8d7b25.png',event); return false;" href="#" class="expand_image"><div class="post_image post_image_small" id="thumb_938377_2"><img alt="" src="/storage/t/7f64959a0bbd878f2d8def88ee8d7b25.png"></div></a></div></div><div class="thread_text" style="min-width:30%">
+					<a style="display:block;" href="/thread/938377/"><b>Там это, взяли в плен шлюху и походу ногу ей вывернули. </b> &mdash; Там это, взяли в плен шлюху и походу ногу ей вывернули. </a>
+				</div>
+								<div class="thread_tags" id="thread_938377_tags">
+				<span><a rel="nofollow" href="/?tags=88" title="/po/ - Политика и новости" onclick="add_tag_to_filter([{id:'88',title:'/po/ - Политика и новости'}]);return false;"><span class="taglabel">/po/ - Политика и новости</span></a> <a rel="nofollow" href="/?tags=4" title="2ch.hk (2ch.pm, 2ch.cm, 2ch.re, 2ch.tf, 2ch.wf, 2ch.yt, 2-ch.so, Двач, Сосач, Харкач, Хиккач)" onclick="add_tag_to_filter([{id:'4',title:'2ch.hk'}]);return false;"><span class="taglabel">2ch.hk</span></a></span>				</div>
+								</td>
+				<td class="thread_date"><span title="Обновлен: сегодня 11:20&#013;Посл.сообщение: сегодня 10:33">сегодня 10:33</span></td>
+			</tr>
+					</tbody>
+    </table>
+	</div>
+<div class="pagination pagination-centered pagination-large"><!-- pagination-centered pagination-large -->
+	<ul>				
+		<li class="active"><a href="http://arhivach.top/index/0/">1</a></li><li><a href="http://arhivach.top/index/25/">2</a></li>
+			<li><a href="http://arhivach.top/index/50/">3</a></li>
+			<li><a href="http://arhivach.top/index/75/">4</a></li>
+			<li><a href="http://arhivach.top/index/100/">5</a></li>
+			<li><a href="http://arhivach.top/index/125/">6</a></li>
+							<li class="disabled"><a href="#" onclick="return false;">...</a></li>		<li><a href="http://arhivach.top/index/922150/" title="Последняя страница">36887</a></li>
+		<li><a href="http://arhivach.top/index/25/" title="Следующая страница" rel="next"><i class="icon-forward"></i></a></li>
+			</ul>
+</div>
+		</div>
+		
+        
+      <hr>
+
+      <div class="footer">
+		<ul class="horizontal-menu"> <!--horizontal-menu-->
+			<li><a href="http://arhivachqqqvwqcotafhk4ks2he56seuwcshpayrm5myeq45vlff44yd.onion/">Архивач в сети Tor</a></li><li><a href="http://arhivach.top/faq/">FAQ</a></li><li><a href="http://arhivach.top/api/">API</a></li><li><a href="http://arhivach.top/contacts/">Контакты</a></li>		</ul>
+		<br><br>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+(w[c] = w[c] || []).push(function() {
+try {
+w.yaCounter35336990 = new Ya.Metrika({id:35336990, trackLinks:true});
+} catch(e) { }
+});
+var n = d.getElementsByTagName("script")[0],
+s = d.createElement("script"),
+f = function () { n.parentNode.insertBefore(s, n); };
+s.type = "text/javascript";
+s.async = true;
+s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+if (w.opera == "[object Opera]") {
+d.addEventListener("DOMContentLoaded", f, false);
+} else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/35336990" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img style='float:right;width:1px;height:1px;opacity:0.1;' src='//counter.yadro.ru/hit?t44.1;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border='0' width='31' height='31'><\/a>")
+//--></script><!--/LiveInternet-->
+		
+		<p>жалоба / abuse: <a href="/cdn-cgi/l/email-protection#2647544e4f5047454e66474f544b474f4a084545">arhivach<span>@</span>airmail.cc</a></p>
+      </div>
+
+    </div><!--/.fluid-container-->
+
+
+<a id="reformal_tab" href="http://arhivach.reformal.ru" onclick="window.open('http://arhivach.reformal.ru');return false;"><img alt="Отзывы и предложения" src="/theme/bootstrap/img/reformal_label.png"></a>
+
+<div id="fullscreen-container"></div>
+
+
+
+	<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/theme/bootstrap/js/bootstrap.js"></script>
+    <script src="/theme/bootstrap/js/select2.min.js"></script>
+	<script src="/theme/bootstrap/js/jquery.pnotify.min.js"></script>
+	<script src="/theme/bootstrap/js/ReferrerKiller.js"></script>
+	<script src="/theme/bootstrap/js/daterangepicker.js"></script>
+		
+	<link href="/theme/bootstrap/css/daterangepicker-bs2.css" rel="stylesheet">
+	
+	
+	<img id="ajax_load_indicator" src="/theme/bootstrap/img/ajax_loader_gray.gif">
+
+  </body>
+</html>
